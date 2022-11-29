@@ -1,4 +1,4 @@
-from typing import NamedTuple
+from typing import NamedTuple, Optional
 
 from kafka.errors import KafkaError
 
@@ -10,7 +10,7 @@ class BrokerMetadata(NamedTuple):
     nodeId: int
     host: str
     port: int
-    rack: str
+    rack: Optional[str]
 
 class PartitionMetadata(NamedTuple):
     topic: str
@@ -18,7 +18,7 @@ class PartitionMetadata(NamedTuple):
     leader: int
     replicas: list[int]
     isr: list[int]
-    error: KafkaError
+    error: int
 
 class OffsetAndMetadata(NamedTuple):
     offset: int
