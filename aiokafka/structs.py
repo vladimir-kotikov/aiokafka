@@ -8,7 +8,6 @@ from kafka.structs import (
     TopicPartition,
 )
 
-
 __all__ = [
     "OffsetAndMetadata",
     "TopicPartition",

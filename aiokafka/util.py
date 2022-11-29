@@ -8,7 +8,6 @@ from packaging.version import Version
 
 from .structs import OffsetAndMetadata, TopicPartition
 
-
 __all__ = [
     "create_task",
     "create_future",
@@ -26,7 +25,7 @@ def create_task(coro: Coroutine[Any, Any, T]) -> "asyncio.Task[T]":
     return loop.create_task(coro)
 
 
-def create_future(loop: AbstractEventLoop = None) -> "asyncio.Future[T]":
+def create_future(loop: Union[AbstractEventLoop, None] = None) -> "asyncio.Future[T]":
     if loop is None:
         loop = get_running_loop()
     return loop.create_future()
